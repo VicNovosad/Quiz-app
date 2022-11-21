@@ -1,0 +1,60 @@
+<!--  DOM Practice -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Practice</title>
+</head>
+<body>
+    
+    <h1 style="color: blue">DOM Practice</h1>
+    <div class="container" style="background-color: bisque;">
+        <p>The is an object that represents our HTML 1:1!</p>
+        <p>It's where JavaScript, HTML, and CSS come together</p>
+    </div>
+    <button>Click me</button>
+
+</body>
+
+<script>
+
+
+var button = document.querySelector('button');
+
+var paragraphs = document.querySelectorAll('p');
+
+var container = document.querySelector('.container');
+
+var firstParagraph = document.querySelector('.container p:first-of-type');
+
+//Event listeners
+
+let click = 0;
+const colors = [ 'red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet' ];
+
+button.addEventListener('click', function() {
+    if (click % 2 === 0 ){
+        for (const p of paragraphs) {
+            p.style.color = colors[click];
+        }
+        container.style.background = 'white';
+        firstParagraph.style.color = 'violet';
+    } else {
+        for (const p of paragraphs) {
+            p.style.color = 'black';
+        }
+        container.style.background = 'bisque';
+    }
+
+    click < 6 ? click++ : click = 0;
+    console.log('clicked:' + click);
+})
+
+
+
+</script>
+
+</html>

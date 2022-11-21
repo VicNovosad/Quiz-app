@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.content-body {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.tab.active{
+    background-color: rgb(136 143 155);
+}

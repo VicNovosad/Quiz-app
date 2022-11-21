@@ -1,0 +1,78 @@
+<!--  DOM Practice -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Practice</title>
+</head>
+<body>
+    
+    <h1 style="color: blue">DOM Practice</h1>
+    <div class="container" style="background-color: bisque;">
+        <p>The is an object that represents our HTML 1:1!</p>
+        <p>It's where JavaScript, HTML, and CSS come together</p>
+    </div>
+</body>
+
+<script>
+//Select, Create, Read, Update, Delete
+var myHeader = document.getElementsByTagName('h1')[0];
+myHeader.style.color = 'green';
+
+setInterval(function(){
+    if (myHeader.style.color === 'blue'){
+        myHeader.style.color = 'green';
+    }   else myHeader.style.color = 'blue';
+}, 1000)
+
+// Creating elements
+
+var button = document.createElement('button');
+document.body.appendChild(button);
+button.textContent = 'Click me';
+button.classList.add('my-button');
+button.style.backgroundColor = 'black';
+button.style.color = 'white';
+
+var myNewP = document.createElement('p');
+myNewP.textContent = "this is a dynamic paragraph";
+document.body.append(myNewP);
+
+// Remove elements
+myNewP.remove();
+
+// Select elements
+var container = document.getElementsByClassName('container')[0];
+container.appendChild(myNewP);
+
+// Creating elements from JSON
+
+var dynamicContainer = document.createElement('div');
+dynamicContainer.classList.add('dynamic-dom-element');
+document.body.append(dynamicContainer);
+
+
+var response = {
+    body: [
+        'The is an object that represents our dynamic element',
+        'It\'s where the data was taken from potential JSON object'
+    ]
+}
+
+
+for (let i = 0; i < response.body.length; i++) {
+    var myP = document.createElement('p');
+    myP.textContent = response.body[i];
+    myP.classList.add('body-paragraph');
+    dynamicContainer.appendChild(myP);
+}
+
+var firstParagraph = response.body[0];
+
+
+</script>
+
+</html>
